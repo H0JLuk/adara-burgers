@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "090302-ist19_ega",
+    "password": "090302-ist19_ega",
+    "database": "090302-ist19_ega",
+    "host": "84.201.184.150",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "090302-ist19_ega",
+    "password": "090302-ist19_ega",
+    "database": "090302-ist19_ega",
+    "host": "84.201.184.150",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "090302-ist19_ega",
+    "password": "090302-ist19_ega",
+    "database": "090302-ist19_ega",
+    "host": "84.201.184.150",
+    "dialect": "mysql"
+  }
+}
