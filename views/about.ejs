@@ -42,7 +42,6 @@
                                 <nav>
                                     <ul id="navigation">
                                         <li><a href="/">home</a></li>
-                                        <li><a href="/menu">Menu</a></li>
                                         <li><a class="active" href="/about">About</a></li>
                                         <li><a href="/contact">Contact</a></li>
                                     </ul>
@@ -152,42 +151,15 @@
                 </div>
             </div>
         </div>
-        <div class="single_gallery big_img">
-            <a class="popup-image" href="img/gallery/1.png">
-                <i class="ti-plus"></i>
-            </a>
-            <img src="img/gallery/1.png" alt="">
-        </div>
-        <div class="single_gallery small_img">
-            <a class="popup-image" href="img/gallery/2.png">
-                <i class="ti-plus"></i>
-            </a>
-            <img src="img/gallery/2.png" alt="">
-        </div>
-        <div class="single_gallery small_img">
-            <a class="popup-image" href="img/gallery/3.png">
-                <i class="ti-plus"></i>
-            </a>
-            <img src="img/gallery/3.png" alt="">
-        </div>
-
-        <div class="single_gallery small_img">
-            <a class="popup-image" href="img/gallery/4.png">
-                <i class="ti-plus"></i>
-            </a>
-            <img src="img/gallery/4.png" alt="">
-        </div>
-        <div class="single_gallery small_img">
-            <a class="popup-image" href="img/gallery/5.png">
-                <i class="ti-plus"></i>
-            </a>
-            <img src="img/gallery/5.png" alt="">
-        </div>
-        <div class="single_gallery big_img">
-            <a class="popup-image" href="img/gallery/6.png">
-                <i class="ti-plus"></i>
-            </a>
-            <img src="img/gallery/6.png" alt="">
+        <div style="margin-left: 20px">
+            <% for (let index=1; index <=6; index++) { %>
+                <div class="single_gallery small_img">
+                    <a class="popup-image" href="img/gallery/<%=index%>.png">
+                        <i class="ti-plus"></i>
+                    </a>
+                    <img src="img/gallery/<%=index%>.png" alt="">
+                </div>
+                <%} %>
         </div>
     </div>
 
@@ -205,81 +177,33 @@
             <div class="row">
                 <div class="col-xl-12">
                     <div class="testmonial_active owl-carousel">
-                        <div class="single_carousel">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <div class="single_testmonial text-center">
-                                        <p>“Donec imperdiet congue orci consequat mattis. Donec rutrum porttitor
-                                            sollicitudin. Pellentesque id dolor tempor sapien feugiat ultrices nec
-                                            sed
-                                            neque.</p>
-                                        <div class="testmonial_author">
-                                            <div class="thumb">
-                                                <img src="img/testmonial/1.png" alt="">
-                                            </div>
-                                            <h4>Kristiana Chouhan</h4>
-                                            <div class="stars">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star-half"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="single_carousel">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <div class="single_testmonial text-center">
-                                        <p>“Donec imperdiet congue orci consequat mattis. Donec rutrum porttitor
-                                            sollicitudin. Pellentesque id dolor tempor sapien feugiat ultrices nec
-                                            sed
-                                            neque.</p>
-                                        <div class="testmonial_author">
-                                            <div class="thumb">
-                                                <img src="img/testmonial/2.png" alt="">
-                                            </div>
-                                            <h4>Arafath Hossain</h4>
-                                            <div class="stars">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star-half"></i>
+
+                        <% for (const review of reviews) { %>
+                            <div class="single_carousel">
+                                <div class="row justify-content-center">
+                                    <div class="col-lg-8">
+                                        <div class="single_testmonial text-center">
+                                            <p>
+                                                <%=review.content%>
+                                            </p>
+                                            <div class="testmonial_author">
+                                                <div class="thumb">
+                                                    <img src="<%=review.photo%>" alt="">
+                                                </div>
+                                                <h4>
+                                                    <%=review.name%>
+                                                </h4>
+                                                <div class="stars">
+                                                    <% for (let index=1; index <=review.rating; index++) { %>
+                                                        <i class="fa fa-star"></i>
+                                                        <%} %>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="single_carousel">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <div class="single_testmonial text-center">
-                                        <p>“Donec imperdiet congue orci consequat mattis. Donec rutrum porttitor
-                                            sollicitudin. Pellentesque id dolor tempor sapien feugiat ultrices nec
-                                            sed
-                                            neque.</p>
-                                        <div class="testmonial_author">
-                                            <div class="thumb">
-                                                <img src="img/testmonial/3.png" alt="">
-                                            </div>
-                                            <h4>A.H Shemanto</h4>
-                                            <div class="stars">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star-half"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                            <%} %>
                     </div>
                 </div>
             </div>

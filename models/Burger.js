@@ -1,29 +1,46 @@
-const Sequelize = require('sequelize');
-const sequelize = require('.');
+'use strict';
 
-const Burger = sequelize.define('burger', {
-  id: {
-    type: Sequelize.INTEGER,
-    autoIncrement: true,
-    primaryKey: true,
-    allowNull: false,
-  },
-  title: {
-    type: Sequelize.STRING,
-    allowNull: false,
-  },
-  description: {
-    type: Sequelize.STRING,
-    allowNull: false,
-  },
-  price: {
-    type: Sequelize.INTEGER,
-    allowNull: false,
-  },
-  image: {
-    type: Sequelize.INTEGER,
-    allowNull: false,
-  },
-});
+module.exports = (sequelize, DataTypes) => {
+  const burgers = sequelize.define('burger', {
+    id: {
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
+      primaryKey: true,
+      allowNull: false,
+    },
+    title: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    description: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    price: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    image: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+    },
+    createdAt: {
+      field: 'created_at',
+      type: DataTypes.DATE,
+      defaultValue: sequelize.literal('NOW()'),
+    },
+    updatedAt: {
+      field: 'updated_at',
+      type: DataTypes.DATE,
+      defaultValue: sequelize.literal('NOW()'),
+    },
+  });
 
-module.exports = Burger;
+  burgers.associate = (models) => {
+    // burgers.hasMany(models., {
+    //   as: '',
+    //   foreignKey: 'burger_id',
+    // });
+  };
+  return burgers;
+};

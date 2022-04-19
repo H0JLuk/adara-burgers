@@ -1,18 +1,14 @@
 'use strict';
 
 module.exports = (sequelize, DataTypes) => {
-  const reviews = sequelize.define('review', {
+  const feedbacks = sequelize.define('feedback', {
     id: {
       type: DataTypes.INTEGER,
       autoIncrement: true,
       primaryKey: true,
       allowNull: false,
     },
-    content: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    photo: {
+    message: {
       type: DataTypes.TEXT,
       allowNull: false,
     },
@@ -20,8 +16,12 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    rating: {
-      type: DataTypes.TINYINT,
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    subject: {
+      type: DataTypes.STRING,
       allowNull: false,
     },
     createdAt: {
@@ -35,12 +35,5 @@ module.exports = (sequelize, DataTypes) => {
       defaultValue: sequelize.literal('NOW()'),
     },
   });
-
-  reviews.associate = (models) => {
-    // burgers.hasMany(models., {
-    //   as: '',
-    //   foreignKey: 'burger_id',
-    // });
-  };
-  return reviews;
+  return feedbacks;
 };

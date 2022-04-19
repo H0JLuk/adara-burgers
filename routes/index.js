@@ -1,20 +1,21 @@
 var express = require('express');
+const { burger: Burger, review: Review } = require('../models');
 var router = express.Router();
 
-router.get('/', (req, res, next) => {
-  res.render('index');
-});
+router.get('/', async (req, res, next) => {
+  const burgers = await Burger.findAll();
 
-router.get('/menu', (req, res, next) => {
-  res.render('menu');
+  res.render('index', { burgers });
 });
 
 router.get('/contact', (req, res, next) => {
   res.render('contact');
 });
 
-router.get('/about', (req, res, next) => {
-  res.render('about');
+router.get('/about', async (req, res, next) => {
+  const reviews = await Review.findAll();
+
+  res.render('about', { reviews });
 });
 
 module.exports = router;
