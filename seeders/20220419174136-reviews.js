@@ -11,6 +11,7 @@ module.exports = {
           photo: 'img/testmonial/1.png',
           name: 'Kristiana Chouhan',
           rating: 4.5,
+          userId: 1,
         },
         {
           content:
@@ -18,6 +19,7 @@ module.exports = {
           photo: 'img/testmonial/2.png',
           name: 'Arafath Hossain',
           rating: 4,
+          userId: 2,
         },
         {
           content:
@@ -25,6 +27,7 @@ module.exports = {
           photo: 'img/testmonial/3.png',
           name: 'A.H Shemanto',
           rating: 5,
+          userId: 3,
         },
       ],
       {},

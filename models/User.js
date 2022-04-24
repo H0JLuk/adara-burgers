@@ -1,27 +1,15 @@
 'use strict';
 
 module.exports = (sequelize, DataTypes) => {
-  const reviews = sequelize.define('review', {
+  const users = sequelize.define('user', {
     id: {
       type: DataTypes.INTEGER,
       autoIncrement: true,
       primaryKey: true,
       allowNull: false,
     },
-    content: {
+    email: {
       type: DataTypes.STRING,
-      allowNull: false,
-    },
-    photo: {
-      type: DataTypes.TEXT,
-      allowNull: false,
-    },
-    name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    rating: {
-      type: DataTypes.TINYINT,
       allowNull: false,
     },
     createdAt: {
@@ -36,11 +24,9 @@ module.exports = (sequelize, DataTypes) => {
     },
   });
 
-  reviews.associate = async (models) => {
-    await models.review.belongsTo(models.user, {
-      as: 'user',
-      foreignKey: 'user_id',
-    });
+  users.associate = (models) => {
+    console.log('HERE');
+    models.user.hasMany(models.review, { as: 'reviews' });
   };
-  return reviews;
+  return users;
 };
