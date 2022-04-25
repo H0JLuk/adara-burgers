@@ -114,7 +114,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <form class="form" action="/api/burger" method="post">
+          <form class="form" action="<%= formUrl %>" method="POST">
             <div class="row">
               <div class="col-sm-6">
                 <div class="form-group">
@@ -133,7 +133,7 @@
               <div class="col-sm-6">
                 <div class="form-group">
                   <input class="form-control" value="<%= burger.price %>" name="price" id="price" type="number" min="1"
-                    max="100" required onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter price'"
+                    max="101" required onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter price'"
                     placeholder="Enter price">
                 </div>
               </div>

@@ -17,14 +17,26 @@ router.post('/burger', async (req, res) => {
   const { title, description, price, image } = req.body;
   try {
     await Burger.create({ title, description, price, image });
-    res.sendStatus(200);
+    res.redirect('/admin');
   } catch {
     res.sendStatus(500);
   }
 });
 
-router.put('/burger/:id', async (req, res) => {
+router.post('/burger/:id', async (req, res) => {
   const { title, description, price, image } = req.body;
+
+  console.log('req.body', req.body);
+  console.log('req.query', req.query);
+  console.log('req.params', req.params);
+
+  console.log('DATA: ', {
+    title,
+    description,
+    price,
+    image,
+    id: req.params.id,
+  });
 
   try {
     await Burger.update(
@@ -36,13 +48,13 @@ router.put('/burger/:id', async (req, res) => {
       },
       {
         where: {
-          _id: id,
+          id: req.params.id,
         },
       },
     );
-    res.sendStatus(200);
+    res.redirect('/admin');
   } catch {
-    res.sendStatus(500);
+    res.sendStatus(501);
   }
 });
 

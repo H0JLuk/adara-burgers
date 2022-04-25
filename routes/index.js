@@ -31,12 +31,20 @@ router.get('/admin/burger', async (req, res, next) => {
     try {
       const burger = await Burger.findByPk(id);
       if (!burger) throw 0;
-      res.render('admin-burger', { burger, mode });
+      res.render('admin-burger', {
+        burger,
+        mode,
+        formUrl: `/api/burger/${id}`,
+      });
     } catch {
       res.redirect('/admin');
     }
   }
-  res.render('admin-burger', { burger: {}, mode: 'create' });
+  res.render('admin-burger', {
+    burger: {},
+    mode: 'create',
+    formUrl: '/api/burger',
+  });
 });
 
 module.exports = router;
