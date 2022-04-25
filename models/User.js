@@ -25,7 +25,6 @@ module.exports = (sequelize, DataTypes) => {
   });
 
   users.associate = (models) => {
-    console.log('HERE');
     models.user.hasMany(models.review, { as: 'reviews' });
   };
   return users;

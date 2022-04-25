@@ -30,8 +30,6 @@ fs.readdirSync(__dirname)
       db.sequelize,
       Sequelize.DataTypes,
     );
-    // model.sync({ alter: true });
-    // model.sync({ force: true });
 
     db[model.name] = model;
   });

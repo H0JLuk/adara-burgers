@@ -18,4 +18,25 @@ router.get('/about', async (req, res, next) => {
   res.render('about', { reviews });
 });
 
+router.get('/admin', async (req, res, next) => {
+  const burgers = await Burger.findAll();
+
+  res.render('admin', { burgers });
+});
+
+router.get('/admin/burger', async (req, res, next) => {
+  const { id, mode } = req.query;
+
+  if (mode === 'edit') {
+    try {
+      const burger = await Burger.findByPk(id);
+      if (!burger) throw 0;
+      res.render('admin-burger', { burger, mode });
+    } catch {
+      res.redirect('/admin');
+    }
+  }
+  res.render('admin-burger', { burger: {}, mode: 'create' });
+});
+
 module.exports = router;
