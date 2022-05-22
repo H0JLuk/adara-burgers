@@ -30,7 +30,7 @@ module.exports = {
           userId: 3,
         },
       ],
-      {},
+      {}
     );
   },
 

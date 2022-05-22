@@ -39,7 +39,7 @@ module.exports = (sequelize, DataTypes) => {
   reviews.associate = async (models) => {
     await models.review.belongsTo(models.user, {
       as: 'user',
-      foreignKey: 'user_id',
+      foreignKey: 'userId',
     });
   };
   return reviews;
